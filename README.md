@@ -4,8 +4,7 @@ Kubernetes Operator for Tower Config
 Simple [Kubernetes Operator](https://kubernetes.io/docs/concepts/extend-kubernetes/operator/) to Configure Ansible Tower by Red Hat.  
 This Operator is build using the [operator framework](https://operatorframework.io/), and will ensure the configuration of Ansible Tower and AWX based on Custom Resources Definitions describing the desired configurations.
 
-
-Dependencies
+# Dependencies
 ------------
 
 All CRDs within this operator depend on a _Secret_ being defined within the desired namespace and this secret name must be given along with any of the CRs that wish, the _Secret_ itself has a particular k/v format:
@@ -24,39 +23,72 @@ stringData:
   verify_ssl: false
 ```
 
-Documentation
+## [Building and Push](https://sdk.operatorframework.io/docs/building-operators/ansible/quickstart/#build-and-push-the-operator-image)
+---------
+
+Use the built-in Makefile targets to build and push your operator. Make sure to define IMG when you call make:
+
+```
+make docker-build docker-push IMG=<some-registry>/<project-name>:<tag>
+```
+
+> NOTE: To allow the cluster pull the image the repository needs to be set as public or you must configure an image pull secret.
+
+
+## [Install and Run](https://sdk.operatorframework.io/docs/building-operators/ansible/quickstart/#run-the-operator)
+--------------------
+
+Install the CRD and deploy the project to the cluster. Set IMG with make deploy to use the image you just pushed:
+
+```
+make install
+make deploy IMG=<some-registry>/<project-name>:<tag>
+```
+
+## [Create](https://sdk.operatorframework.io/docs/building-operators/ansible/quickstart/#create-a-sample-custom-resource)
+----------
+
+Create a sample CR:
+
+```
+kubectl apply -f config/samples/tower_v1alpha1_organization.yaml
+```
+
+
+# Documentation
 --------------
 
 The following CRDs are implemented:
 
 | Custom Resource Definition | Implementation | Custom Resource Samples |
---------------
-[Credentials](config/crd/bases/tower.ansible.com_credentials.yaml) | [roles/credential](roles/credential/defaults/main.yml) | [Credential](config/samples/tower_v1alpha1_credential.yaml) | 
-[CredentialInputSources](config/crd/bases/tower.ansible.com_credentialinputsources.yaml) | [roles/credentialinputsource](roles/credentialinputsource/defaults/main.yml) | [CredentialInputSources](config/samples/tower_v1alpha1_credentialinputsource.yaml)
-[CredentialTypes](config/crd/bases/tower.ansible.com_credentialtypes.yaml) | [roles/credentialtype](roles/credentialtype/defaults/main.yml) | [CredentialType](config/samples/tower_v1alpha1_credentialtype.yaml) |
-[Groups](config/crd/bases/tower.ansible.com_groups.yaml) | [roles/group](roles/group/defaults/main.yml) | [Group](config/samples/tower_v1alpha1_group.yaml) |
-[Inventories](config/crd/bases/tower.ansible.com_inventories.yaml) | [roles/inventory](roles/inventory/defaults/main.yml) | [Inventory](config/samples/tower_v1alpha1_inventory.yaml) |
-[InventorySources](config/crd/bases/tower.ansible.com_inventorysources.yaml) | [roles/inventorysource](roles/inventorysource/defaults/main.yml) | [InventorySource](config/samples/tower_v1alpha1_inventorysource.yaml) |
-[JobTemplates](config/crd/bases/tower.ansible.com_jobtemplates.yaml) | [roles/jobtemplate](roles/jobtemplate/defaults/main.yml) | [JobTemplate](config/samples/tower_v1alpha1_jobtemplate.yaml) |
-[Modules](config/crd/bases/tower.ansible.com_modules.yaml) | [roles/module](roles/module/defaults/main.yml) | [Module](config/samples/tower_v1alpha1_module.yaml) |
-[Organizations](config/crd/bases/tower.ansible.com_organizations.yaml) | [roles/organization](roles/organization/defaults/main.yml) | [Organization](config/samples/tower_v1alpha1_organization.yaml) |
-[Projects](config/crd/bases/tower.ansible.com_projects.yaml) | [roles/project](roles/project/defaults/main.yml) | [Project](config/samples/tower_v1alpha1_project.yaml) |
-[Roles](config/crd/bases/tower.ansible.com_roles.yaml) | [roles/role](roles/role/defaults/main.yml) | [Role](config/samples/tower_v1alpha1_role.yaml) |
-[Teams](config/crd/bases/tower.ansible.com_teams.yaml) | [roles/team](roles/team/defaults/main.yml) | [Team](config/samples/tower_v1alpha1_team.yaml) |
-[Users](config/crd/bases/tower.ansible.com_users.yaml) | [roles/user](roles/user/defaults/main.yml) | [User](config/samples/tower_v1alpha1_user.yaml) |
+|-------------------|--------------------|----------------------------------|
+[Credentials](config/crd/bases/tower.ansible.com_credentials.yaml) | [credential](roles/credential/defaults/main.yml) | [Credential](config/samples/tower_v1alpha1_credential.yaml) |  
+[CredentialInputSources](config/crd/bases/tower.ansible.com_credentialinputsources.yaml) | [credentialinputsource](roles/credentialinputsource/defaults/main.yml) | [CredentialInputSource](config/samples/tower_v1alpha1_credentialinputsource.yaml)
+[CredentialTypes](config/crd/bases/tower.ansible.com_credentialtypes.yaml) | [credentialtype](roles/credentialtype/defaults/main.yml) | [CredentialType](config/samples/tower_v1alpha1_credentialtype.yaml) |
+[Groups](config/crd/bases/tower.ansible.com_groups.yaml) | [group](roles/group/defaults/main.yml) | [Group](config/samples/tower_v1alpha1_group.yaml) |
+[Inventories](config/crd/bases/tower.ansible.com_inventories.yaml) | [inventory](roles/inventory/defaults/main.yml) | [Inventory](config/samples/tower_v1alpha1_inventory.yaml) |
+[InventorySources](config/crd/bases/tower.ansible.com_inventorysources.yaml) | [inventorysource](roles/inventorysource/defaults/main.yml) | [InventorySource](config/samples/tower_v1alpha1_inventorysource.yaml) |
+[JobTemplates](config/crd/bases/tower.ansible.com_jobtemplates.yaml) | [jobtemplate](roles/jobtemplate/defaults/main.yml) | [JobTemplate](config/samples/tower_v1alpha1_jobtemplate.yaml) |
+[Modules](config/crd/bases/tower.ansible.com_modules.yaml) | [module](roles/module/defaults/main.yml) | [Module](config/samples/tower_v1alpha1_module.yaml) |
+[Organizations](config/crd/bases/tower.ansible.com_organizations.yaml) | [organization](roles/organization/defaults/main.yml) | [Organization](config/samples/tower_v1alpha1_organization.yaml) |
+[Projects](config/crd/bases/tower.ansible.com_projects.yaml) | [project](roles/project/defaults/main.yml) | [Project](config/samples/tower_v1alpha1_project.yaml) |
+[Roles](config/crd/bases/tower.ansible.com_roles.yaml) | [role](roles/role/defaults/main.yml) | [Role](config/samples/tower_v1alpha1_role.yaml) |
+[Teams](config/crd/bases/tower.ansible.com_teams.yaml) | [team](roles/team/defaults/main.yml) | [Team](config/samples/tower_v1alpha1_team.yaml) |
+[Users](config/crd/bases/tower.ansible.com_users.yaml) | [user](roles/user/defaults/main.yml) | [User](config/samples/tower_v1alpha1_user.yaml) |
 
-The following CRDs have the structure but are not yet fully implemented:
+
+ > The following CRDs have the structure but are not yet fully implemented:
 
 | Custom Resource Definition | Implementation | Custom Resource Example |
---------------
-[Notification](config/crd/bases/tower.ansible.com_jobtemplates.yaml) | [roles/notification](roles/jobtemplate/defaults/main.yml) |
-[Schedule](config/crd/bases/tower.ansible.com_jobtemplates.yaml) | [roles/jobtemplate](roles/jobtemplate/defaults/main.yml) |
-[WorkflowJobTemplateNode](config/crd/bases/tower.ansible.com_jobtemplates.yaml) | [roles/jobtemplate](roles/jobtemplate/defaults/main.yml) |
-[WorkflowJobTemplate](config/crd/bases/tower.ansible.com_jobtemplates.yaml) | [roles/jobtemplate](roles/jobtemplate/defaults/main.yml) |
-[WorkflowTemplate](config/crd/bases/tower.ansible.com_jobtemplates.yaml) | [roles/jobtemplate](roles/jobtemplate/defaults/main.yml) |
+|-|-|-|
+[Notification](config/crd/bases/tower.ansible.com_jobtemplates.yaml) | [notification](roles/jobtemplate/defaults/main.yml) |
+[Schedule](config/crd/bases/tower.ansible.com_jobtemplates.yaml) | [jobtemplate](roles/jobtemplate/defaults/main.yml) |
+[WorkflowJobTemplateNode](config/crd/bases/tower.ansible.com_jobtemplates.yaml) | [jobtemplate](roles/jobtemplate/defaults/main.yml) |
+[WorkflowJobTemplate](config/crd/bases/tower.ansible.com_jobtemplates.yaml) | [jobtemplate](roles/jobtemplate/defaults/main.yml) |
+[WorkflowTemplate](config/crd/bases/tower.ansible.com_jobtemplates.yaml) | [jobtemplate](roles/jobtemplate/defaults/main.yml) |
 
 
-[Operator Variables](https://sdk.operatorframework.io/docs/building-operators/ansible/development-tips/#extra-vars-sent-to-ansible)
+## [Variables](https://sdk.operatorframework.io/docs/building-operators/ansible/development-tips/#extra-vars-sent-to-ansible)
 ------------
 
 The extra vars that are sent to Ansible are managed by the operator. The spec section will pass along the key-value pairs as extra vars. This is equivalent to how above extra vars are passed in to ansible-playbook. The operator also passes along additional variables under the ansible_operator_meta field for the name of the CR and the namespace of the CR.  
@@ -101,7 +133,7 @@ The structure passed to Ansible as extra vars is:
 `message` and `newParameter` are set in the top level as extra variables, and `ansible_operator_meta` provides the relevant metadata for the Custom Resource as defined in the operator.
 
 
-Example
+## Examples
 ----------------
 
 In this example we'll cover about how to create an organization in our Tower instance, using Organization CRD.  
@@ -160,9 +192,9 @@ stringData:
 EOF
 ```
 
-> NOTE: The CRs will be annotated with the tower host that where they were configured (`tower.ansible.com/host: <host>`)
+> NOTE: CRs will have an annotation with `tower.ansible.com/host: <host>`
 
-With the credentials, we can start to create the CRs that represents the different configurations that we want to have applied in Tower. The example below, shows the most basic CR, the [Organization](config/samples/tower_v1alpha1_organization.yaml) and [Project](config/samples/tower_v1alpha1_project.yaml).
+With the credentials, we can start to create the CRs which represents the different configurations that we want to have applied in Tower. The example below shows the most basic CRs, the [Organization](config/samples/tower_v1alpha1_organization.yaml) and [Project](config/samples/tower_v1alpha1_project.yaml).
 
 
 ```YAML
