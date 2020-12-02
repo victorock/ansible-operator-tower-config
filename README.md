@@ -208,6 +208,15 @@ kubectl apply -f <mydir>/ -R
 > NOTE: If you want to adopt a more gitops approach, and build a pipeline to get these definitions either in one or multiple clusters, that's exactly what i am doing in this example [here](https://github.com/victorock/k8s-gitops/).
 ----
 
+TODO
+-------
+
+* Tests based on [ansible-role-tower-config](https://github.com/victorock/ansible-role-tower-config)
+* Implementation of additional Tower CRDs: Settings, License, Workflow*
+* Add additional tasks to delete all dependent CRDs when organization is deleted (finalized).
+* Add strict mode capabilities, where only CRs configuration are kept.
+* Refine the CRDs specifications based on docstring of Tower's modules.
+* Refine the CRDs specifications based on the implementation asserts.
 
 License
 -------
