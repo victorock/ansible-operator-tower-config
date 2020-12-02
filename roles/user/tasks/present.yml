@@ -1,0 +1,27 @@
+---
+- name: "user: present"
+  include_role:
+    name: "module"
+  vars:
+    # yamllint disable-line rule:line-length
+    module_kind: "{{ user_kind }}"
+    # yamllint disable-line rule:line-length
+    module_api_group: "{{ user_api_group }}"
+    # yamllint disable-line rule:line-length
+    module_api_version: "{{ user_api_version }}"
+    # yamllint disable-line rule:line-length
+    module_finalize: "{{ user_finalize }}"
+    # yamllint disable-line rule:line-length
+    module_metadata_namespace: "{{ user_metadata_namespace }}"
+    # yamllint disable-line rule:line-length
+    module_metadata_name: "{{ user_metadata_name }}"
+    # yamllint disable-line rule:line-length
+    module_spec: "{{ user_spec }}"
+    # yamllint disable-line rule:line-length
+    module_spec_collection: "{{ user_spec_collection }}"
+    # yamllint disable-line rule:line-length
+    module_spec_name: "{{ user_module_name }}"
+    # yamllint disable-line rule:line-length
+    module_spec_parameters: "{{ user_spec_config }}"
+    # yamllint disable-line rule:line-length
+    module_spec_secret: "{{ user_spec_secret }}"

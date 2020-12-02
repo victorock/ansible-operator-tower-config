@@ -1,0 +1,380 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: manager-role
+rules:
+  ##
+  ## Base operator rules
+  ##
+  - apiGroups:
+      - ""
+    resources:
+      - secrets
+      - pods
+      - pods/exec
+      - pods/log
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - apps
+    resources:
+      - deployments
+      - daemonsets
+      - replicasets
+      - statefulsets
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  ##
+  ## Rules for tower.ansible.com/v1alpha1, Kind: Role
+  ##
+  - apiGroups:
+      - tower.ansible.com
+    resources:
+      - roles
+      - roles/status
+      - roles/finalizers
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  ##
+  ## Rules for tower.ansible.com/v1alpha1, Kind: Credential
+  ##
+  - apiGroups:
+      - tower.ansible.com
+    resources:
+      - credentials
+      - credentials/status
+      - credentials/finalizers
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  ##
+  ## Rules for tower.ansible.com/v1alpha1, Kind: Organization
+  ##
+  - apiGroups:
+      - tower.ansible.com
+    resources:
+      - organizations
+      - organizations/status
+      - organizations/finalizers
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  ##
+  ## Rules for tower.ansible.com/v1alpha1, Kind: JobTemplate
+  ##
+  - apiGroups:
+      - tower.ansible.com
+    resources:
+      - jobtemplates
+      - jobtemplates/status
+      - jobtemplates/finalizers
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  ##
+  ## Rules for tower.ansible.com/v1alpha1, Kind: Team
+  ##
+  - apiGroups:
+      - tower.ansible.com
+    resources:
+      - teams
+      - teams/status
+      - teams/finalizers
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  ##
+  ## Rules for tower.ansible.com/v1alpha1, Kind: User
+  ##
+  - apiGroups:
+      - tower.ansible.com
+    resources:
+      - users
+      - users/status
+      - users/finalizers
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  ##
+  ## Rules for tower.ansible.com/v1alpha1, Kind: Inventory
+  ##
+  - apiGroups:
+      - tower.ansible.com
+    resources:
+      - inventories
+      - inventories/status
+      - inventories/finalizers
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  ##
+  ## Rules for tower.ansible.com/v1alpha1, Kind: JobLaunch
+  ##
+  - apiGroups:
+      - tower.ansible.com
+    resources:
+      - joblaunches
+      - joblaunches/status
+      - joblaunches/finalizers
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  ##
+  ## Rules for tower.ansible.com/v1alpha1, Kind: Module
+  ##
+  - apiGroups:
+      - tower.ansible.com
+    resources:
+      - modules
+      - modules/status
+      - modules/finalizers
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  ##
+  ## Rules for tower.ansible.com/v1alpha1, Kind: Schedule
+  ##
+  - apiGroups:
+      - tower.ansible.com
+    resources:
+      - schedules
+      - schedules/status
+      - schedules/finalizers
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  ##
+  ## Rules for tower.ansible.com/v1alpha1, Kind: WorkflowJobTemplate
+  ##
+  - apiGroups:
+      - tower.ansible.com
+    resources:
+      - workflowjobtemplates
+      - workflowjobtemplates/status
+      - workflowjobtemplates/finalizers
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  ##
+  ## Rules for tower.ansible.com/v1alpha1, Kind: WorkflowJobTemplateNode
+  ##
+  - apiGroups:
+      - tower.ansible.com
+    resources:
+      - workflowjobtemplatenodes
+      - workflowjobtemplatenodes/status
+      - workflowjobtemplatenodes/finalizers
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  ##
+  ## Rules for tower.ansible.com/v1alpha1, Kind: WorkflowTemplate
+  ##
+  - apiGroups:
+      - tower.ansible.com
+    resources:
+      - workflowtemplates
+      - workflowtemplates/status
+      - workflowtemplates/finalizers
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  ##
+  ## Rules for tower.ansible.com/v1alpha1, Kind: Notification
+  ##
+  - apiGroups:
+      - tower.ansible.com
+    resources:
+      - notifications
+      - notifications/status
+      - notifications/finalizers
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  ##
+  ## Rules for tower.ansible.com/v1alpha1, Kind: InventorySource
+  ##
+  - apiGroups:
+      - tower.ansible.com
+    resources:
+      - inventorysources
+      - inventorysources/status
+      - inventorysources/finalizers
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  ##
+  ## Rules for tower.ansible.com/v1alpha1, Kind: Host
+  ##
+  - apiGroups:
+      - tower.ansible.com
+    resources:
+      - hosts
+      - hosts/status
+      - hosts/finalizers
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  ##
+  ## Rules for tower.ansible.com/v1alpha1, Kind: Group
+  ##
+  - apiGroups:
+      - tower.ansible.com
+    resources:
+      - groups
+      - groups/status
+      - groups/finalizers
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  ##
+  ## Rules for tower.ansible.com/v1alpha1, Kind: CredentialType
+  ##
+  - apiGroups:
+      - tower.ansible.com
+    resources:
+      - credentialtypes
+      - credentialtypes/status
+      - credentialtypes/finalizers
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  ##
+  ## Rules for tower.ansible.com/v1alpha1, Kind: CredentialInputSource
+  ##
+  - apiGroups:
+      - tower.ansible.com
+    resources:
+      - credentialinputsources
+      - credentialinputsources/status
+      - credentialinputsources/finalizers
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  ##
+  ## Rules for tower.ansible.com/v1alpha1, Kind: Project
+  ##
+  - apiGroups:
+      - tower.ansible.com
+    resources:
+      - projects
+      - projects/status
+      - projects/finalizers
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+# +kubebuilder:scaffold:rules

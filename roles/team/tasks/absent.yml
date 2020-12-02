@@ -1,0 +1,27 @@
+---
+- name: "team: absent"
+  include_role:
+    name: "module"
+  vars:
+    # yamllint disable-line rule:line-length
+    module_kind: "{{ team_kind }}"
+    # yamllint disable-line rule:line-length
+    module_api_group: "{{ team_api_group }}"
+    # yamllint disable-line rule:line-length
+    module_api_version: "{{ team_api_version }}"
+    # yamllint disable-line rule:line-length
+    module_finalize: "{{ team_finalize }}"
+    # yamllint disable-line rule:line-length
+    module_metadata_namespace: "{{ team_metadata_namespace }}"
+    # yamllint disable-line rule:line-length
+    module_metadata_name: "{{ team_metadata_name }}"
+    # yamllint disable-line rule:line-length
+    module_spec: "{{ team_spec }}"
+    # yamllint disable-line rule:line-length
+    module_spec_collection: "{{ team_spec_collection }}"
+    # yamllint disable-line rule:line-length
+    module_spec_name: "{{ team_module_name }}"
+    # yamllint disable-line rule:line-length
+    module_spec_parameters: "{{ team_spec_config }}"
+    # yamllint disable-line rule:line-length
+    module_spec_secret: "{{ team_spec_secret }}"

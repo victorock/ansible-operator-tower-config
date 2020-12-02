@@ -1,0 +1,27 @@
+---
+- name: "credentialinputsource: absent"
+  include_role:
+    name: "module"
+  vars:
+    # yamllint disable-line rule:line-length
+    module_kind: "{{ credentialinputsource_kind }}"
+    # yamllint disable-line rule:line-length
+    module_api_group: "{{ credentialinputsource_api_group }}"
+    # yamllint disable-line rule:line-length
+    module_api_version: "{{ credentialinputsource_api_version }}"
+    # yamllint disable-line rule:line-length
+    module_finalize: "{{ credentialinputsource_finalize }}"
+    # yamllint disable-line rule:line-length
+    module_metadata_namespace: "{{ credentialinputsource_metadata_namespace }}"
+    # yamllint disable-line rule:line-length
+    module_metadata_name: "{{ credentialinputsource_metadata_name }}"
+    # yamllint disable-line rule:line-length
+    module_spec: "{{ credentialinputsource_spec }}"
+    # yamllint disable-line rule:line-length
+    module_spec_collection: "{{ credentialinputsource_spec_collection }}"
+    # yamllint disable-line rule:line-length
+    module_spec_name: "{{ credentialinputsource_module_name }}"
+    # yamllint disable-line rule:line-length
+    module_spec_parameters: "{{ credentialinputsource_spec_config }}"
+    # yamllint disable-line rule:line-length
+    module_spec_secret: "{{ credentialinputsource_spec_secret }}"

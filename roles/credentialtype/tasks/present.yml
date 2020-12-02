@@ -1,0 +1,27 @@
+---
+- name: "credentialtype: present"
+  include_role:
+    name: "module"
+  vars:
+    # yamllint disable-line rule:line-length
+    module_kind: "{{ credentialtype_kind }}"
+    # yamllint disable-line rule:line-length
+    module_api_group: "{{ credentialtype_api_group }}"
+    # yamllint disable-line rule:line-length
+    module_api_version: "{{ credentialtype_api_version }}"
+    # yamllint disable-line rule:line-length
+    module_finalize: "{{ credentialtype_finalize }}"
+    # yamllint disable-line rule:line-length
+    module_metadata_namespace: "{{ credentialtype_metadata_namespace }}"
+    # yamllint disable-line rule:line-length
+    module_metadata_name: "{{ credentialtype_metadata_name }}"
+    # yamllint disable-line rule:line-length
+    module_spec: "{{ credentialtype_spec }}"
+    # yamllint disable-line rule:line-length
+    module_spec_collection: "{{ credentialtype_spec_collection }}"
+    # yamllint disable-line rule:line-length
+    module_spec_name: "{{ credentialtype_module_name }}"
+    # yamllint disable-line rule:line-length
+    module_spec_parameters: "{{ credentialtype_spec_config }}"
+    # yamllint disable-line rule:line-length
+    module_spec_secret: "{{ credentialtype_spec_secret }}"

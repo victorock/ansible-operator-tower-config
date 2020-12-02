@@ -1,0 +1,65 @@
+domain: ansible.com
+layout: ansible.sdk.operatorframework.io/v1
+projectName: tower-config-operator
+resources:
+- group: tower
+  kind: Role
+  version: v1alpha1
+- group: tower
+  kind: Credential
+  version: v1alpha1
+- group: tower
+  kind: Organization
+  version: v1alpha1
+- group: tower
+  kind: JobTemplate
+  version: v1alpha1
+- group: tower
+  kind: Team
+  version: v1alpha1
+- group: tower
+  kind: User
+  version: v1alpha1
+- group: tower
+  kind: Inventory
+  version: v1alpha1
+- group: tower
+  kind: JobLaunch
+  version: v1alpha1
+- group: tower
+  kind: Module
+  version: v1alpha1
+- group: tower
+  kind: Schedule
+  version: v1alpha1
+- group: tower
+  kind: WorkflowJobTemplate
+  version: v1alpha1
+- group: tower
+  kind: WorkflowJobTemplateNode
+  version: v1alpha1
+- group: tower
+  kind: WorkflowTemplate
+  version: v1alpha1
+- group: tower
+  kind: Notification
+  version: v1alpha1
+- group: tower
+  kind: InventorySource
+  version: v1alpha1
+- group: tower
+  kind: Host
+  version: v1alpha1
+- group: tower
+  kind: Group
+  version: v1alpha1
+- group: tower
+  kind: CredentialType
+  version: v1alpha1
+- group: tower
+  kind: CredentialInputSource
+  version: v1alpha1
+- group: tower
+  kind: Project
+  version: v1alpha1
+version: 3-alpha

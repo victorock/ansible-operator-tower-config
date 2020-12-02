@@ -1,0 +1,13 @@
+---
+apiVersion: tower.ansible.com/v1alpha1
+kind: User
+metadata:
+  name: user-sample
+spec:
+  secret: toweraccess
+  config:
+    username: "{{ ansible_operator_meta.name }}"
+    email: "user-sample@organization-sample.com"
+    first_name: "user"
+    last_name: "sample"
+

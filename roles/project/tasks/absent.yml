@@ -1,0 +1,27 @@
+---
+- name: "project: absent"
+  include_role:
+    name: "module"
+  vars:
+    # yamllint disable-line rule:line-length
+    module_kind: "{{ project_kind }}"
+    # yamllint disable-line rule:line-length
+    module_api_group: "{{ project_api_group }}"
+    # yamllint disable-line rule:line-length
+    module_api_version: "{{ project_api_version }}"
+    # yamllint disable-line rule:line-length
+    module_finalize: "{{ project_finalize }}"
+    # yamllint disable-line rule:line-length
+    module_metadata_namespace: "{{ project_metadata_namespace }}"
+    # yamllint disable-line rule:line-length
+    module_metadata_name: "{{ project_metadata_name }}"
+    # yamllint disable-line rule:line-length
+    module_spec: "{{ project_spec }}"
+    # yamllint disable-line rule:line-length
+    module_spec_collection: "{{ project_spec_collection }}"
+    # yamllint disable-line rule:line-length
+    module_spec_name: "{{ project_module_name }}"
+    # yamllint disable-line rule:line-length
+    module_spec_parameters: "{{ project_spec_config }}"
+    # yamllint disable-line rule:line-length
+    module_spec_secret: "{{ project_spec_secret }}"

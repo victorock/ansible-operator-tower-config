@@ -1,0 +1,27 @@
+---
+- name: "Assert variables"
+  assert:
+    that:
+      - project_kind is defined
+      - project_kind is string
+      - project_api_group is defined
+      - project_api_group is string
+      - project_api_version is defined
+      - project_api_version is string
+      - project_finalize_state is defined
+      - project_finalize_state is in ['present', 'absent']
+      - project_metadata_name is defined
+      - project_metadata_name is string
+      - project_metadata_namespace is defined
+      - project_metadata_namespace is string
+      - project_module_name is defined
+      - project_module_name is in [ 'tower_project' ]
+      - project_spec is defined
+      - project_spec is mapping
+      - project_spec_collection is defined
+      - project_spec_collection is in ['awx.awx', 'ansible.tower']
+      - project_spec_config is defined
+      - project_spec_config is mapping
+
+- name: "project: Calling desired state specific tasks"
+  include_tasks: "{{ project_spec_config.state | default('present') }}.yml"

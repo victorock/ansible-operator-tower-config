@@ -1,0 +1,27 @@
+---
+- name: "Assert variables"
+  assert:
+    that:
+      - team_kind is defined
+      - team_kind is string
+      - team_api_group is defined
+      - team_api_group is string
+      - team_api_version is defined
+      - team_api_version is string
+      - team_finalize_state is defined
+      - team_finalize_state is in ['present', 'absent']
+      - team_metadata_name is defined
+      - team_metadata_name is string
+      - team_metadata_namespace is defined
+      - team_metadata_namespace is string
+      - team_module_name is defined
+      - team_module_name is in [ 'tower_team' ]
+      - team_spec is defined
+      - team_spec is mapping
+      - team_spec_collection is defined
+      - team_spec_collection is in ['awx.awx', 'ansible.tower']
+      - team_spec_config is defined
+      - team_spec_config is mapping
+
+- name: "team: Calling desired state specific tasks"
+  include_tasks: "{{ team_spec_config.state | default('present') }}.yml"

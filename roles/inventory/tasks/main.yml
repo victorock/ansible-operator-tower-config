@@ -1,0 +1,27 @@
+---
+- name: "Assert variables"
+  assert:
+    that:
+      - inventory_kind is defined
+      - inventory_kind is string
+      - inventory_api_group is defined
+      - inventory_api_group is string
+      - inventory_api_version is defined
+      - inventory_api_version is string
+      - inventory_finalize_state is defined
+      - inventory_finalize_state is in ['present', 'absent']
+      - inventory_metadata_name is defined
+      - inventory_metadata_name is string
+      - inventory_metadata_namespace is defined
+      - inventory_metadata_namespace is string
+      - inventory_module_name is defined
+      - inventory_module_name is in [ 'tower_inventory' ]
+      - inventory_spec is defined
+      - inventory_spec is mapping
+      - inventory_spec_collection is defined
+      - inventory_spec_collection is in ['awx.awx', 'ansible.tower']
+      - inventory_spec_config is defined
+      - inventory_spec_config is mapping
+
+- name: "inventory: Calling desired state specific tasks"
+  include_tasks: "{{ inventory_spec_config.state | default('present') }}.yml"

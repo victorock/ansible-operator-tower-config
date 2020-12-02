@@ -1,0 +1,27 @@
+---
+- name: "group: present"
+  include_role:
+    name: "module"
+  vars:
+    # yamllint disable-line rule:line-length
+    module_kind: "{{ group_kind }}"
+    # yamllint disable-line rule:line-length
+    module_api_group: "{{ group_api_group }}"
+    # yamllint disable-line rule:line-length
+    module_api_version: "{{ group_api_version }}"
+    # yamllint disable-line rule:line-length
+    module_finalize: "{{ group_finalize }}"
+    # yamllint disable-line rule:line-length
+    module_metadata_namespace: "{{ group_metadata_namespace }}"
+    # yamllint disable-line rule:line-length
+    module_metadata_name: "{{ group_metadata_name }}"
+    # yamllint disable-line rule:line-length
+    module_spec: "{{ group_spec }}"
+    # yamllint disable-line rule:line-length
+    module_spec_collection: "{{ group_spec_collection }}"
+    # yamllint disable-line rule:line-length
+    module_spec_name: "{{ group_module_name }}"
+    # yamllint disable-line rule:line-length
+    module_spec_parameters: "{{ group_spec_config }}"
+    # yamllint disable-line rule:line-length
+    module_spec_secret: "{{ group_spec_secret }}"

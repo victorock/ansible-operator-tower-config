@@ -1,0 +1,6 @@
+apiVersion: tower.ansible.com/v1alpha1
+kind: WorkflowJobTemplateNode
+metadata:
+  name: workflowjobtemplatenode-sample
+spec:
+  foo: bar

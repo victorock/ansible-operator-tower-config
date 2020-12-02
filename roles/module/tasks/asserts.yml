@@ -1,0 +1,24 @@
+---
+- name: "Assert variables"
+  assert:
+    that:
+      - module_kind is defined
+      - module_kind is string
+      - module_api_group is defined
+      - module_api_group is string
+      - module_api_version is defined
+      - module_api_version is string
+      - module_finalize_state is defined
+      - module_finalize_state is in ['present', 'absent']
+      - module_metadata_name is defined
+      - module_metadata_name is string
+      - module_metadata_namespace is defined
+      - module_metadata_namespace is string
+      - module_spec is defined
+      - module_spec is mapping
+      - module_spec_collection is defined
+      - module_spec_collection is in ['awx.awx', 'ansible.tower']
+      - module_spec_name is defined
+      - module_spec_name is string
+      - module_spec_parameters is defined
+      - module_spec_parameters is mapping

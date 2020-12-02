@@ -1,0 +1,37 @@
+---
+## { "ansible_operator_meta": {
+##      "name": <object_name>,
+##      "namespace": <object_namespace>,
+##   },
+##   <cr_spec_fields_as_snake_case>,
+##   <watch vars>,
+##   <finalizer vars>,
+##   _<group_as_snake>_<kind>: {
+##       <cr_object> as is
+##   }
+##   _<group_as_snake>_<kind>_spec: {
+##       <cr_object.spec> as is
+##   }
+## }
+# yamllint disable-line rule:line-length
+module_kind: "Module"
+# yamllint disable-line rule:line-length
+module_api_group: "tower.ansible.com"
+# yamllint disable-line rule:line-length
+module_api_version: "v1alpha1"
+# yamllint disable-line rule:line-length
+module_finalize_state: "{{ finalize_state | default('present') }}"
+# yamllint disable-line rule:line-length
+module_metadata_namespace: "{{ ansible_operator_meta.namespace }}"
+# yamllint disable-line rule:line-length
+module_metadata_name: "{{ ansible_operator_meta.name }}"
+# yamllint disable-line rule:line-length
+module_spec: "{{ _tower_ansible_com_module_spec }}"
+# yamllint disable-line rule:line-length
+module_spec_collection: "{{ module_spec.collection | default('awx.awx') }}"
+# yamllint disable-line rule:line-length
+module_spec_name: "{{ module_spec.name | mandatory }}"
+# yamllint disable-line rule:line-length
+module_spec_parameters: "{{ module_spec.parameters | combine({'state': module_finalize_state}) }}"
+# yamllint disable-line rule:line-length
+module_spec_secret: "{{ module_spec.secret | mandatory }}"

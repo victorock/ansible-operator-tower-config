@@ -1,0 +1,43 @@
+---
+- name: "Create temporary file"
+  tempfile:
+    state: file
+    suffix: module
+  register: r_module_tempfile
+
+- name: "Generate module's task file"
+  when: r_module_tempfile.path is defined
+  template:
+    src: "module.j2"
+    dest: "{{ r_module_tempfile.path }}"
+  vars:
+    module_collection: "{{ module_spec_collection }}"
+    module_name: "{{ module_spec_name }}"
+
+- name: "Call module's task"
+  when: r_module_tempfile.path is defined
+  include_tasks: "{{ r_module_tempfile.path }}"
+  vars:
+    module_parameters: "{{ module_spec_parameters }}"
+    tower_oauth_token: "{{ tower_secret_data.token }}"
+    tower_host: "{{ tower_secret_data.host }}"
+    tower_verify_ssl: "{{ tower_secret_data.verify_ssl }}"
+
+- name: "Delete tempfile"
+  when: r_module_tempfile.path is defined
+  file:
+    path: "{{ r_module_tempfile.path }}"
+    state: absent
+
+- name: "Label CR with tower.ansible.com/organization"
+  when: module_spec_parameters.organization is defined
+  k8s:
+    definition:
+      apiVersion: "{{ module_api_group }}/{{ module_api_version }}"
+      kind: "{{ module_kind }}"
+      metadata:
+        name: "{{ module_metadata_name }}"
+        namespace: "{{ module_metadata_namespace }}"
+        labels:
+          # yamllint disable-line rule:line-length
+          "tower.ansible.com/organization": "{{ module_spec_parameters.organization }}"

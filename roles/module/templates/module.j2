@@ -1,0 +1,7 @@
+---
+- name: "{{ module_name }}"
+  environment:
+    - TOWER_OAUTH_TOKEN: "{{ '{{' }} tower_oauth_token {{ '}}' }}"
+    - TOWER_HOST: "{{ '{{' }} tower_host {{ '}}' }}"
+    - TOWER_VERIFY_SSL: "{{ '{{' }} tower_verify_ssl {{ '}}' }}"
+  {{ module_collection }}.{{ module_name }}: "{{ '{{' }} module_parameters {{ '}}' }}"

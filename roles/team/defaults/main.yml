@@ -1,0 +1,37 @@
+---
+## { "ansible_operator_meta": {
+##      "name": <object_name>,
+##      "namespace": <object_namespace>,
+##   },
+##   <cr_spec_fields_as_snake_case>,
+##   <watch vars>,
+##   <finalizer vars>,
+##   _<group_as_snake>_<kind>: {
+##       <cr_object> as is
+##   }
+##   _<group_as_snake>_<kind>_spec: {
+##       <cr_object.spec> as is
+##   }
+## }
+# yamllint disable-line rule:line-length
+team_kind: "Team"
+# yamllint disable-line rule:line-length
+team_api_group: "tower.ansible.com"
+# yamllint disable-line rule:line-length
+team_api_version: "v1alpha1"
+# yamllint disable-line rule:line-length
+team_finalize_state: "{{ finalize_state | default('present', true) }}"
+# yamllint disable-line rule:line-length
+team_metadata_name: "{{ ansible_operator_meta.name }}"
+# yamllint disable-line rule:line-length
+team_metadata_namespace: "{{ ansible_operator_meta.namespace }}"
+# yamllint disable-line rule:line-length
+team_module_name: "tower_team"
+# yamllint disable-line rule:line-length
+team_spec: "{{ _tower_ansible_com_team.spec }}"
+# yamllint disable-line rule:line-length
+team_spec_collection: "{{ team_spec.collection | default('awx.awx') }}"
+# yamllint disable-line rule:line-length
+team_spec_config: "{{ team_spec.config | combine({'state': team_finalize_state}) }}"
+# yamllint disable-line rule:line-length
+team_spec_secret: "{{ team_spec.secret | mandatory }}"

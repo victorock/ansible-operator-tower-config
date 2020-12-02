@@ -1,0 +1,12 @@
+---
+apiVersion: tower.ansible.com/v1alpha1
+kind: Inventory
+metadata:
+  name: inventory-sample
+spec:
+  secret: toweraccess
+  config:
+    name: "{{ ansible_operator_meta.name }}"
+    description: "Our Foo Cloud Servers"
+    organization: "organization-sample"
+

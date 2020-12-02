@@ -1,0 +1,27 @@
+---
+- name: "Assert variables"
+  assert:
+    that:
+      - credentialtype_kind is defined
+      - credentialtype_kind is string
+      - credentialtype_api_group is defined
+      - credentialtype_api_group is string
+      - credentialtype_api_version is defined
+      - credentialtype_api_version is string
+      - credentialtype_finalize_state is defined
+      - credentialtype_finalize_state is in ['present', 'absent']
+      - credentialtype_metadata_name is defined
+      - credentialtype_metadata_name is string
+      - credentialtype_metadata_namespace is defined
+      - credentialtype_metadata_namespace is string
+      - credentialtype_module_name is defined
+      - credentialtype_module_name is in [ 'tower_credential_type' ]
+      - credentialtype_spec is defined
+      - credentialtype_spec is mapping
+      - credentialtype_spec_collection is defined
+      - credentialtype_spec_collection is in ['awx.awx', 'ansible.tower']
+      - credentialtype_spec_config is defined
+      - credentialtype_spec_config is mapping
+
+- name: "credentialtype: Calling desired state specific tasks"
+  include_tasks: "{{ credentialtype_spec_config.state | default('present') }}.yml"

@@ -1,0 +1,27 @@
+---
+- name: "inventory: absent"
+  include_role:
+    name: "module"
+  vars:
+    # yamllint disable-line rule:line-length
+    module_kind: "{{ inventory_kind }}"
+    # yamllint disable-line rule:line-length
+    module_api_group: "{{ inventory_api_group }}"
+    # yamllint disable-line rule:line-length
+    module_api_version: "{{ inventory_api_version }}"
+    # yamllint disable-line rule:line-length
+    module_finalize: "{{ inventory_finalize }}"
+    # yamllint disable-line rule:line-length
+    module_metadata_namespace: "{{ inventory_metadata_namespace }}"
+    # yamllint disable-line rule:line-length
+    module_metadata_name: "{{ inventory_metadata_name }}"
+    # yamllint disable-line rule:line-length
+    module_spec: "{{ inventory_spec }}"
+    # yamllint disable-line rule:line-length
+    module_spec_collection: "{{ inventory_spec_collection }}"
+    # yamllint disable-line rule:line-length
+    module_spec_name: "{{ inventory_module_name }}"
+    # yamllint disable-line rule:line-length
+    module_spec_parameters: "{{ inventory_spec_config }}"
+    # yamllint disable-line rule:line-length
+    module_spec_secret: "{{ inventory_spec_secret }}"

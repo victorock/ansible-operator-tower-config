@@ -1,0 +1,12 @@
+---
+apiVersion: tower.ansible.com/v1alpha1
+kind: Module
+metadata:
+  name: "tower-organization-demo"
+spec:
+  secret: toweraccess
+  name: "tower_organization"
+  parameters:
+    name: "DEMO"
+    description: "DEMO"
+

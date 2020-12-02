@@ -1,0 +1,24 @@
+# permissions for end users to edit workflowjobtemplates.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: workflowjobtemplate-editor-role
+rules:
+- apiGroups:
+  - tower.ansible.com
+  resources:
+  - workflowjobtemplates
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - tower.ansible.com
+  resources:
+  - workflowjobtemplates/status
+  verbs:
+  - get

@@ -1,0 +1,22 @@
+## Append samples you want in your CSV to this file as resources ##
+resources:
+- tower_v1alpha1_role.yaml
+- tower_v1alpha1_credential.yaml
+- tower_v1alpha1_organization.yaml
+- tower_v1alpha1_jobtemplate.yaml
+- tower_v1alpha1_team.yaml
+- tower_v1alpha1_user.yaml
+- tower_v1alpha1_inventory.yaml
+- tower_v1alpha1_module.yaml
+- tower_v1alpha1_schedule.yaml
+- tower_v1alpha1_workflowjobtemplate.yaml
+- tower_v1alpha1_workflowjobtemplatenode.yaml
+- tower_v1alpha1_workflowtemplate.yaml
+- tower_v1alpha1_notification.yaml
+- tower_v1alpha1_inventorysource.yaml
+- tower_v1alpha1_host.yaml
+- tower_v1alpha1_group.yaml
+- tower_v1alpha1_credentialtype.yaml
+- tower_v1alpha1_credentialinputsource.yaml
+- tower_v1alpha1_project.yaml
+# +kubebuilder:scaffold:manifestskustomizesamples

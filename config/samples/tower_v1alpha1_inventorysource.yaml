@@ -1,0 +1,16 @@
+---
+apiVersion: tower.ansible.com/v1alpha1
+kind: InventorySource
+metadata:
+  name: inventorysource-sample
+spec:
+  secret: toweraccess
+  config:
+    name: "{{ ansible_operator_meta.name }}"
+    description: Source for inventory
+    inventory: "inventory-sample"
+    source: "scm"
+    source_project: "project-sample"
+    source_path: "wordpress-nginx/hosts.example"
+    overwrite: True
+    update_on_launch: True

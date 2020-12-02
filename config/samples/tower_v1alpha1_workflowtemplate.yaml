@@ -1,0 +1,6 @@
+apiVersion: tower.ansible.com/v1alpha1
+kind: WorkflowTemplate
+metadata:
+  name: workflowtemplate-sample
+spec:
+  foo: bar

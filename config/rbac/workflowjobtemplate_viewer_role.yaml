@@ -1,0 +1,20 @@
+# permissions for end users to view workflowjobtemplates.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: workflowjobtemplate-viewer-role
+rules:
+- apiGroups:
+  - tower.ansible.com
+  resources:
+  - workflowjobtemplates
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - tower.ansible.com
+  resources:
+  - workflowjobtemplates/status
+  verbs:
+  - get

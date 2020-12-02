@@ -1,0 +1,25 @@
+---
+# This kustomization.yaml is not intended to be run by itself,
+# since it depends on service name and namespace that are out of this kustomize package.
+# It should be run by config/default
+resources:
+- bases/tower.ansible.com_roles.yaml
+- bases/tower.ansible.com_credentials.yaml
+- bases/tower.ansible.com_organizations.yaml
+- bases/tower.ansible.com_jobtemplates.yaml
+- bases/tower.ansible.com_teams.yaml
+- bases/tower.ansible.com_users.yaml
+- bases/tower.ansible.com_inventories.yaml
+- bases/tower.ansible.com_modules.yaml
+- bases/tower.ansible.com_schedules.yaml
+- bases/tower.ansible.com_workflowjobtemplates.yaml
+- bases/tower.ansible.com_workflowjobtemplatenodes.yaml
+- bases/tower.ansible.com_workflowtemplates.yaml
+- bases/tower.ansible.com_notifications.yaml
+- bases/tower.ansible.com_inventorysources.yaml
+- bases/tower.ansible.com_hosts.yaml
+- bases/tower.ansible.com_groups.yaml
+- bases/tower.ansible.com_credentialtypes.yaml
+- bases/tower.ansible.com_credentialinputsources.yaml
+- bases/tower.ansible.com_projects.yaml
+# +kubebuilder:scaffold:crdkustomizeresource

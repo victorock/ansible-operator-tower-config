@@ -1,0 +1,44 @@
+---
+apiVersion: tower.ansible.com/v1alpha1
+kind: Role
+metadata:
+  name: role-user-team-sample
+spec:
+  secret: toweraccess
+  config:
+    role: member
+    user: "user-sample"
+    target_team: "team-sample"
+---
+apiVersion: tower.ansible.com/v1alpha1
+kind: Role
+metadata:
+  name: role-user-organization-sample
+spec:
+  secret: toweraccess
+  config:
+    role: member
+    user: "user-sample"
+    organization: "organization-sample"
+---
+apiVersion: tower.ansible.com/v1alpha1
+kind: Role
+metadata:
+  name: role-team-project-sample
+spec:
+  secret: toweraccess
+  config:
+    role: admin
+    project: "project-sample"
+    team: "team-sample"
+---
+apiVersion: tower.ansible.com/v1alpha1
+kind: Role
+metadata:
+  name: role-team-jobtemplate-sample
+spec:
+  secret: toweraccess
+  config:
+    role: admin
+    job_template: "jobtemplate-sample"
+    team: "team-sample"

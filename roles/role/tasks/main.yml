@@ -1,0 +1,27 @@
+---
+- name: "Assert variables"
+  assert:
+    that:
+      - role_kind is defined
+      - role_kind is string
+      - role_api_group is defined
+      - role_api_group is string
+      - role_api_version is defined
+      - role_api_version is string
+      - role_finalize_state is defined
+      - role_finalize_state is in ['present', 'absent']
+      - role_metadata_name is defined
+      - role_metadata_name is string
+      - role_metadata_namespace is defined
+      - role_metadata_namespace is string
+      - role_module_name is defined
+      - role_module_name is in [ 'tower_role' ]
+      - role_spec is defined
+      - role_spec is mapping
+      - role_spec_collection is defined
+      - role_spec_collection is in ['awx.awx', 'ansible.tower']
+      - role_spec_config is defined
+      - role_spec_config is mapping
+
+- name: "role: Calling desired state specific tasks"
+  include_tasks: "{{ role_spec_config.state | default('present') }}.yml"

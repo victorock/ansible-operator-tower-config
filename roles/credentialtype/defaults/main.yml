@@ -1,0 +1,37 @@
+---
+## { "ansible_operator_meta": {
+##      "name": <object_name>,
+##      "namespace": <object_namespace>,
+##   },
+##   <cr_spec_fields_as_snake_case>,
+##   <watch vars>,
+##   <finalizer vars>,
+##   _<group_as_snake>_<kind>: {
+##       <cr_object> as is
+##   }
+##   _<group_as_snake>_<kind>_spec: {
+##       <cr_object.spec> as is
+##   }
+## }
+# yamllint disable-line rule:line-length
+credentialtype_kind: "CredentialType"
+# yamllint disable-line rule:line-length
+credentialtype_api_group: "tower.ansible.com"
+# yamllint disable-line rule:line-length
+credentialtype_api_version: "v1alpha1"
+# yamllint disable-line rule:line-length
+credentialtype_finalize_state: "{{ finalize_state | default('present', true) }}"
+# yamllint disable-line rule:line-length
+credentialtype_metadata_name: "{{ ansible_operator_meta.name }}"
+# yamllint disable-line rule:line-length
+credentialtype_metadata_namespace: "{{ ansible_operator_meta.namespace }}"
+# yamllint disable-line rule:line-length
+credentialtype_module_name: "tower_credential_type"
+# yamllint disable-line rule:line-length
+credentialtype_spec: "{{ _tower_ansible_com_credentialtype.spec }}"
+# yamllint disable-line rule:line-length
+credentialtype_spec_collection: "{{ credentialtype_spec.collection | default('awx.awx') }}"
+# yamllint disable-line rule:line-length
+credentialtype_spec_config: "{{ credentialtype_spec.config | combine({'state': credentialtype_finalize_state}) }}"
+# yamllint disable-line rule:line-length
+credentialtype_spec_secret: "{{ credentialtype_spec.secret | mandatory }}"

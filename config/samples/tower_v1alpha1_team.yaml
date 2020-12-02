@@ -1,0 +1,10 @@
+---
+apiVersion: tower.ansible.com/v1alpha1
+kind: Team
+metadata:
+  name: team-sample
+spec:
+  secret: toweraccess
+  config:
+    name: "{{ ansible_operator_meta.name }}" # required. Name to use for the team.
+    organization: "organization-sample" # required. Organization the team should be made a member of.

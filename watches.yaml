@@ -1,0 +1,151 @@
+---
+# Use the 'create api' subcommand to add watches to this file.
+- version: v1alpha1
+  group: tower.ansible.com
+  kind: Role
+  role: role
+  finalizer:
+    name: finalizer.tower.ansible.com
+    vars:
+      finalize_state: "absent"
+- version: v1alpha1
+  group: tower.ansible.com
+  kind: Credential
+  role: credential
+  finalizer:
+    name: finalizer.tower.ansible.com
+    vars:
+      finalize_state: "absent"
+- version: v1alpha1
+  group: tower.ansible.com
+  kind: Organization
+  role: organization
+  finalizer:
+    name: finalizer.tower.ansible.com
+    vars:
+      finalize_state: "absent"
+- version: v1alpha1
+  group: tower.ansible.com
+  kind: JobTemplate
+  role: jobtemplate
+  finalizer:
+    name: finalizer.tower.ansible.com
+    vars:
+      finalize_state: "absent"
+- version: v1alpha1
+  group: tower.ansible.com
+  kind: Team
+  role: team
+  finalizer:
+    name: finalizer.tower.ansible.com
+    vars:
+      finalize_state: "absent"
+- version: v1alpha1
+  group: tower.ansible.com
+  kind: User
+  role: user
+  finalizer:
+    name: finalizer.tower.ansible.com
+    vars:
+      finalize_state: "absent"
+- version: v1alpha1
+  group: tower.ansible.com
+  kind: Inventory
+  role: inventory
+- version: v1alpha1
+  group: tower.ansible.com
+  kind: Module
+  role: module
+  finalizer:
+    name: finalizer.tower.ansible.com
+    vars:
+      finalize_state: "absent"
+- version: v1alpha1
+  group: tower.ansible.com
+  kind: Schedule
+  role: schedule
+  finalizer:
+    name: finalizer.tower.ansible.com
+    vars:
+      finalize_state: "absent"
+- version: v1alpha1
+  group: tower.ansible.com
+  kind: WorkflowJobTemplate
+  role: workflowjobtemplate
+  finalizer:
+    name: finalizer.tower.ansible.com
+    vars:
+      finalize_state: "absent"
+- version: v1alpha1
+  group: tower.ansible.com
+  kind: WorkflowJobTemplateNode
+  role: workflowjobtemplatenode
+  finalizer:
+    name: finalizer.tower.ansible.com
+    vars:
+      finalize_state: "absent"
+- version: v1alpha1
+  group: tower.ansible.com
+  kind: WorkflowTemplate
+  role: workflowtemplate
+  finalizer:
+    name: finalizer.tower.ansible.com
+    vars:
+      finalize_state: "absent"
+- version: v1alpha1
+  group: tower.ansible.com
+  kind: Notification
+  role: notification
+  finalizer:
+    name: finalizer.tower.ansible.com
+    vars:
+      finalize_state: "absent"
+- version: v1alpha1
+  group: tower.ansible.com
+  kind: InventorySource
+  role: inventorysource
+  finalizer:
+    name: finalizer.tower.ansible.com
+    vars:
+      finalize_state: "absent"
+- version: v1alpha1
+  group: tower.ansible.com
+  kind: Host
+  role: host
+  finalizer:
+    name: finalizer.tower.ansible.com
+    vars:
+      finalize_state: "absent"
+- version: v1alpha1
+  group: tower.ansible.com
+  kind: Group
+  role: group
+  finalizer:
+    name: finalizer.tower.ansible.com
+    vars:
+      finalize_state: "absent"
+- version: v1alpha1
+  group: tower.ansible.com
+  kind: CredentialType
+  role: credentialtype
+  finalizer:
+    name: finalizer.tower.ansible.com
+    vars:
+      finalize_state: "absent"
+- version: v1alpha1
+  group: tower.ansible.com
+  kind: CredentialInputSource
+  role: credentialinputsource
+  finalizer:
+    name: finalizer.tower.ansible.com
+    vars:
+      finalize_state: "absent"
+- version: v1alpha1
+  group: tower.ansible.com
+  kind: Project
+  role: project
+  finalizer:
+    name: finalizer.tower.ansible.com
+    vars:
+      finalize_state: "absent"
+# +kubebuilder:scaffold:watch

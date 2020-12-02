@@ -1,0 +1,12 @@
+---
+apiVersion: tower.ansible.com/v1alpha1
+kind: Group
+metadata:
+  name: group-sample
+spec:
+  secret: toweraccess
+  config:
+    name: "{{ ansible_operator_meta.name }}"
+    description: "Local Host Group"
+    inventory: "inventory-sample"
+

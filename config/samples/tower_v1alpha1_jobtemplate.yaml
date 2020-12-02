@@ -1,0 +1,23 @@
+---
+apiVersion: tower.ansible.com/v1alpha1
+kind: JobTemplate
+metadata:
+  name: jobtemplate-sample
+spec:
+  secret: toweraccess
+  config:
+    job_type: "check" # required. choices: run;check;scan. The job type to use for the job template.
+    playbook: "wordpress-nginx/site.yml"
+    organization: "organization-sample"
+    name: "{{ ansible_operator_meta.name }}"
+    project: "project-sample"
+    ask_verbosity: "true"
+    description: "ansible-examples"
+    ask_diff_mode: "true"
+    ask_skip_tags: "true"
+    ask_limit: "true"
+    ask_job_type: "true"
+    ask_inventory: "true"
+    ask_tags: "true"
+    ask_credential: "true"
+    ask_extra_vars: "true"

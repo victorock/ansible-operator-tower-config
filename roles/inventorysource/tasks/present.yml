@@ -1,0 +1,27 @@
+---
+- name: "inventorysource: present"
+  include_role:
+    name: "module"
+  vars:
+    # yamllint disable-line rule:line-length
+    module_kind: "{{ inventorysource_kind }}"
+    # yamllint disable-line rule:line-length
+    module_api_group: "{{ inventorysource_api_group }}"
+    # yamllint disable-line rule:line-length
+    module_api_version: "{{ inventorysource_api_version }}"
+    # yamllint disable-line rule:line-length
+    module_finalize: "{{ inventorysource_finalize }}"
+    # yamllint disable-line rule:line-length
+    module_metadata_namespace: "{{ inventorysource_metadata_namespace }}"
+    # yamllint disable-line rule:line-length
+    module_metadata_name: "{{ inventorysource_metadata_name }}"
+    # yamllint disable-line rule:line-length
+    module_spec: "{{ inventorysource_spec }}"
+    # yamllint disable-line rule:line-length
+    module_spec_collection: "{{ inventorysource_spec_collection }}"
+    # yamllint disable-line rule:line-length
+    module_spec_name: "{{ inventorysource_module_name }}"
+    # yamllint disable-line rule:line-length
+    module_spec_parameters: "{{ inventorysource_spec_config }}"
+    # yamllint disable-line rule:line-length
+    module_spec_secret: "{{ inventorysource_spec_secret }}"

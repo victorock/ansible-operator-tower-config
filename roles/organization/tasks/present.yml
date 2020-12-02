@@ -1,0 +1,27 @@
+---
+- name: "organization: present"
+  include_role:
+    name: "module"
+  vars:
+    # yamllint disable-line rule:line-length
+    module_kind: "{{ organization_kind }}"
+    # yamllint disable-line rule:line-length
+    module_api_group: "{{ organization_api_group }}"
+    # yamllint disable-line rule:line-length
+    module_api_version: "{{ organization_api_version }}"
+    # yamllint disable-line rule:line-length
+    module_finalize: "{{ organization_finalize }}"
+    # yamllint disable-line rule:line-length
+    module_metadata_namespace: "{{ organization_metadata_namespace }}"
+    # yamllint disable-line rule:line-length
+    module_metadata_name: "{{ organization_metadata_name }}"
+    # yamllint disable-line rule:line-length
+    module_spec: "{{ organization_spec }}"
+    # yamllint disable-line rule:line-length
+    module_spec_collection: "{{ organization_spec_collection }}"
+    # yamllint disable-line rule:line-length
+    module_spec_name: "{{ organization_module_name }}"
+    # yamllint disable-line rule:line-length
+    module_spec_parameters: "{{ organization_spec_config }}"
+    # yamllint disable-line rule:line-length
+    module_spec_secret: "{{ organization_spec_secret }}"

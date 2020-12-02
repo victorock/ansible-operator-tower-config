@@ -1,0 +1,27 @@
+---
+- name: "Assert variables"
+  assert:
+    that:
+      - host_kind is defined
+      - host_kind is string
+      - host_api_group is defined
+      - host_api_group is string
+      - host_api_version is defined
+      - host_api_version is string
+      - host_finalize_state is defined
+      - host_finalize_state is in ['present', 'absent']
+      - host_metadata_name is defined
+      - host_metadata_name is string
+      - host_metadata_namespace is defined
+      - host_metadata_namespace is string
+      - host_module_name is defined
+      - host_module_name is in [ 'tower_host' ]
+      - host_spec is defined
+      - host_spec is mapping
+      - host_spec_collection is defined
+      - host_spec_collection is in ['awx.awx', 'ansible.tower']
+      - host_spec_config is defined
+      - host_spec_config is mapping
+
+- name: "host: Calling desired state specific tasks"
+  include_tasks: "{{ host_spec_config.state | default('present') }}.yml"

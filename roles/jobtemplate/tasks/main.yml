@@ -1,0 +1,27 @@
+---
+- name: "Assert variables"
+  assert:
+    that:
+      - jobtemplate_kind is defined
+      - jobtemplate_kind is string
+      - jobtemplate_api_group is defined
+      - jobtemplate_api_group is string
+      - jobtemplate_api_version is defined
+      - jobtemplate_api_version is string
+      - jobtemplate_finalize_state is defined
+      - jobtemplate_finalize_state is in ['present', 'absent']
+      - jobtemplate_metadata_name is defined
+      - jobtemplate_metadata_name is string
+      - jobtemplate_metadata_namespace is defined
+      - jobtemplate_metadata_namespace is string
+      - jobtemplate_module_name is defined
+      - jobtemplate_module_name is in [ 'tower_job_template' ]
+      - jobtemplate_spec is defined
+      - jobtemplate_spec is mapping
+      - jobtemplate_spec_collection is defined
+      - jobtemplate_spec_collection is in ['awx.awx', 'ansible.tower']
+      - jobtemplate_spec_config is defined
+      - jobtemplate_spec_config is mapping
+
+- name: "jobtemplate: Calling desired state specific tasks"
+  include_tasks: "{{ jobtemplate_spec_config.state | default('present') }}.yml"

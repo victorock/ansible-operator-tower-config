@@ -1,0 +1,4 @@
+---
+- include_tasks: asserts.yml
+- include_tasks: secret.yml
+- include_tasks: module.yml
